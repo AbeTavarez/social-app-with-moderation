@@ -1,0 +1,15 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Settings',
+  description: 'User settings page'
+}
+
+export default function Settings() {
+    return (
+      <div>
+        <h1>Settings Page</h1>
+      </div>
+    );
+  }
+  
