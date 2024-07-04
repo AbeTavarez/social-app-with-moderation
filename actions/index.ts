@@ -91,10 +91,9 @@ export async function getPost(postId: string) {
   }
 }
 
-
 /**
  * Deletes a post by the id
- * @param postId 
+ * @param postId
  */
 export async function deletePost(postId: string) {
   const supabase = createServerClient();
@@ -105,15 +104,45 @@ export async function deletePost(postId: string) {
       .delete()
       .eq("id", postId);
 
-      console.log(data);
-      console.log(error);
+    console.log(data);
+    console.log(error);
 
-      if (error) throw new Error(`Error deleting post ${postId}`);
-      
-      
+    if (error) throw new Error(`Error deleting post ${postId}`);
   } catch (e) {
     console.log(e);
   } finally {
-    redirect('/feed');
+    redirect("/feed");
   }
+}
+
+
+/**
+ * Updates post by id
+ * @param postId 
+ * @param newPostText 
+ */
+export async function updatePost(postId: string, newPostText: string) {
+  const supabase = createServerClient();
+
+  try {
+    const { error } = await supabase
+      .from("posts")
+      .update({ text: newPostText })
+      .eq("id", postId);
+
+      if (error) throw new Error(`Error updating post ${postId}`)
+  } catch (e) {
+    console.log(e);
+  } finally {
+    revalidatePath(`/posts/${postId}`);
+    redirect(`/posts/${postId}`);
+  }
+}
+
+/**
+ *
+ * @param postId
+ */
+export async function navigateToEditPage(postId: string) {
+  redirect(`/posts/${postId}/edit`);
 }
