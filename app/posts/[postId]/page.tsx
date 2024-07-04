@@ -1,4 +1,4 @@
-import { getPost, deletePost } from "@/actions";
+import { getPost, deletePost, navigateToEditPage } from "@/actions";
 import Button from "@/components/button";
 
 type Props = {
@@ -25,7 +25,7 @@ export default async function Post({ params, searchParams }: Props) {
 
       <div className="flex justify-end space-x-4">
         <Button btnText="Delete" postId={postId} handler={deletePost} />
-        <button>update</button>
+        <Button btnText="Update" postId={postId} handler={navigateToEditPage} />
       </div>
     </div>
   );
