@@ -1,17 +1,31 @@
+# Social App with AI Moderation
+
+![alt text](/moderation-ai-app.png "Logo Title Text 1")
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Cloning the project
 
-First, run the development server:
+First run the clone command:
+
+```https://github.com/AbeTavarez/social-app-with-moderation```
+
+Then cd into the project folder and run:
+```npm i```
+
+You also need to create a .env.local file and 
+add the following environment variables with your own values from Supabase and OpenAI:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+OPENAI_API_KEY=
+```
+
+Done, now run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
